@@ -12,5 +12,29 @@ LangGraph is an open-source framework that allows control of agent workflows. Th
 
 Below is an example of one of my MAS graphs.
 
-![Financial Fraud MAS Graph](https://github.com/briannaghinds/ai-chatbot/blob/main/Intro%20Files/fraud_detector_graph.png)
+![Financial Fraud MAS Graph](https://github.com/briannaghinds/ai-chatbot/blob/main/Introduction/fraud_detector_graph.png)
+
+### LangGraph basics
+```python
+# basic imports
+from typing import TypedDict  # this is used for the agent state (holds the memory)
+
+
+# define the AgentState
+class AgentState(TypedDict):
+    some_variable: type  # you will define some variable and its data type
+    some_variable1: type
+
+# define the nodes/agents
+def agent1(state: AgentState) -> AgentState
+
+# define the graph + nodes
+
+# build the graph
+
+# call the graph workflow
+```
+
+## What is `streamlit`?
+Docs: https://docs.streamlit.io/develop/api-reference
 
