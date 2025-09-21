@@ -26,7 +26,9 @@ class AgentState(TypedDict):
     some_variable1: type
 
 # define the nodes/agents
-def agent1(state: AgentState) -> AgentState
+def agent1(state: AgentState) -> AgentState:
+    """In this method the agent objective is """
+    pass
 
 # define the graph + nodes
 
