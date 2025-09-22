@@ -40,3 +40,11 @@ def agent1(state: AgentState) -> AgentState:
 ## What is `streamlit`?
 Docs: https://docs.streamlit.io/develop/api-reference
 
+```python 
+# import the library
+import streamlit as st
+
+# streamlit works by building the page top to bottom
+# or you can define the page in a class and define the page metadata in the __init__ method and define another method to build the page structure
+```
+
