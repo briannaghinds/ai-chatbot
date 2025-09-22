@@ -10,12 +10,10 @@ from dotenv import load_dotenv
 from typing import TypedDict
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import StateGraph
-from IPython.display import Image, display
-
 
 # define the LLM
 load_dotenv()
-API = os.getenv("G_API_TOKEN")
+API = os.getenv("GOOGLE_API_KEY")
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.5-flash",
     google_api_key=API,
@@ -53,15 +51,5 @@ workflow.add_node("summarizer", notes_summarizer)
 workflow.set_entry_point("summarizer")   # start here
 workflow.set_finish_point("summarizer")  # end here
 
-notes_summary = workflow.compile()
-
-
 # compile the agent
 notes_summary = workflow.compile()
-
-
-## GRAPH VISUALIZE ##
-display(Image(notes_summary.get_graph().draw_mermaid_png()))
-with open("notes_summary_graph.png", "wb") as f:
-    f.write(notes_summary.get_graph().draw_mermaid_png())
-####

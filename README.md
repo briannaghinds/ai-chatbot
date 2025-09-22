@@ -43,4 +43,14 @@ New-Item -Path . -Name ".env" -ItemType "File"
 ```
 
 ### Step 5: 
-Go to ai.studio.google.com
+Go to ai.studio.google.com and get an API key from the *Dashboards/API keys* section. Take the API key given and paste it into your `.env` file as a variable.
+
+```python
+GOOGLE_API_KEY="COPIED API KEY VALUE"  # this variable is what you call
+```
+
+### Step 6:
+Follow along to code the `main.py` file and the `tutor_ai.py` file.
+
+### Step 7:
+To run the streamlit application run `streamlit run main.py` (main.py is the where the streamlit logic is) and pray it works lol.
