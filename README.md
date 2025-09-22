@@ -1,7 +1,7 @@
-# AI Chatbot 101
-In this project we will build an AI chatbot via a LLM API and we will build the UI using the `streamlit` Python library.
+# AI Notes Summarizer
+In this project we will build an AI Notes Summarizer to help you study via a LLM API and we will build the UI using the `streamlit` Python library.
 
+The learning tutor, will explain uploaded course notes in different difficult levels of your choosing (Beginner/Intermediate/Advanced) and if we have time, the application will give a quiz based on those notes.
 
-CHANGE: the goal is to have a API, LLM/LangGraph, Streamlit integration
-LLM -> Google AI Studio API
-- idea 1: learning tutor, an AI tutor that explains uploaded course notes in different difficulty levels (Beginner/Immediate/Advanced) and also have quizzes based on those notes
+## Application Setup Steps:
+### Step 1:

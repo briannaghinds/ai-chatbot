@@ -39,7 +39,7 @@ def notes_summarizer(state: AgentState) -> AgentState:
     {state['page_content']}
     
     Requirements:
-    - Beginner: Use simple words, short sentences, everyday examples.
+    - Beginner: Use simple words, short sentences, everyday examples. Like you are explaining it to a little kid.
     - Intermediate: Use moderate technical terms, explain main ideas, avoid jargon.
     - Expert: Assume the reader has background knowledge, focus on depth and detail.
     """
