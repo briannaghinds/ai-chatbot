@@ -5,7 +5,6 @@ Description: Application build and streamlit definitions
 
 import streamlit as st  # UI library
 from pypdf import PdfReader  # library to read PDF content
-from IPython.display import Image, display
 import matplotlib.pyplot as plt
 
 # set the page configures
@@ -17,9 +16,9 @@ st.set_page_config(
 
 # define a title for the page
 st.title("AI Learning Tutor")
-st.write("This application is an AI tutor that explains uploaded course notes in different difficulty levels (Beginner/Immediate/Advanced) and also have quizzes based on those notes")
+st.write("This application is an AI tutor that explains uploaded course notes in different difficulty levels (Beginner/Immediate/Advanced).")
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 # define a place to upload a PDF document (streamlit makes this really easy)
 # upload and display the file
 uploaded_file = col1.file_uploader(  # NEED TO PIP INSTALL EXTENSION (pip install streamlit[pdf])
@@ -39,7 +38,7 @@ if uploaded_file:
         pdf_text += page.extract_text() or ""
 
     # let user pick level
-    lvl = col2.pills("Choose your learning level:", ["Beginner", "Intermediate", "Expert"])
+    lvl = col2.radio("Choose your learning level:", ["Beginner", "Intermediate", "Expert"])
 
     if col2.button("Summarize Notes"):
         from tutor_ai import notes_summary  # import the compiled agent
@@ -47,6 +46,6 @@ if uploaded_file:
         col2.write(result["summary"])
 
         # ## GRAPH VISUALIZE ##
-        # Image(notes_summary.get_graph().print_ascii())
-        # plt.savefig("notes_summary.png")
+        graph_ascii = notes_summary.get_graph().print_ascii()
+        col3.text(graph_ascii)  # shows ASCII graph in Streamlit
         # ####
