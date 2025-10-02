@@ -41,9 +41,3 @@ if uploaded_file:
         from tutor_ai import notes_summary  # import the compiled agent
         result = notes_summary.invoke({"page_content": pdf_text, "lvl": lvl})
         col2.write(result["summary"])
-
-        # ## GRAPH VISUALIZE ##
-        graph_ascii = notes_summary.get_graph().print_ascii()  # need to run pip install grandalf
-        col2.subheader("Agent Workflow Graph (ASCII)")
-        col2.text(graph_ascii)
-        # ####
