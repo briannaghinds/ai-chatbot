@@ -28,9 +28,6 @@ uploaded_file = col1.file_uploader(  # NEED TO PIP INSTALL EXTENSION (pip instal
 )
 
 if uploaded_file:
-    # display the uploaded file
-    # col2.pdf(uploaded_file)
-
     # extract text from all pages
     reader = PdfReader(uploaded_file)
     pdf_text = ""
@@ -46,6 +43,7 @@ if uploaded_file:
         col2.write(result["summary"])
 
         # ## GRAPH VISUALIZE ##
-        graph_ascii = notes_summary.get_graph().print_ascii()
-        col3.text(graph_ascii)  # shows ASCII graph in Streamlit
+        graph_ascii = notes_summary.get_graph().print_ascii()  # need to run pip install grandalf
+        col2.subheader("Agent Workflow Graph (ASCII)")
+        col2.text(graph_ascii)
         # ####
