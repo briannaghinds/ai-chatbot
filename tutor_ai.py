@@ -1,22 +1,23 @@
 """
 @author: Brianna Hinds
 Description: LangGraph agent responsible for making Beginner/Intermediate/Advanced explanations of notes.
+im taaking over
     - EXTRA: make quizzes for the notes
 """
 
 # import libraries
-import os
-from dotenv import load_dotenv
+import os  # vscode
+from dotenv import load_dotenv  # vscode
 from typing import TypedDict
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import StateGraph
 
 # define the LLM
-load_dotenv()
-API = os.getenv("GOOGLE_API_KEY")
+load_dotenv()  # vscode
+API = os.getenv("GOOGLE_API_KEY")  # vscode
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.5-flash",
-    google_api_key=API,
+    google_api_key=API,  # PUT ACTUAL API KEY
     temperature=0   # this parameter has to do with the LLM hallucinating
 )
 
@@ -45,7 +46,7 @@ def notes_summarizer(state: AgentState) -> AgentState:
     return {"page_content": state["page_content"], "lvl": state["lvl"], "summary": response.content}
 
 
-# initialize and define the graph
+# initialize and define the graph  
 workflow = StateGraph(AgentState)
 workflow.add_node("summarizer", notes_summarizer)
 workflow.set_entry_point("summarizer")   # start here
