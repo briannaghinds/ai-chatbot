@@ -1,56 +1,72 @@
-# AI Notes Summarizer
-In this project we will build an AI Notes Summarizer to help you study via a Google Gemini LLM and we will build the UI using the `streamlit` Python library.
+# AI Notes Summarizer 📚
 
-The learning tutor, will explain uploaded course notes in different difficult levels of your choosing (Beginner/Intermediate/Advanced) and if we have time, the application will give a quiz based on those notes.
+In this project, we'll build an **AI Notes Summarizer** to help you study. It uses a **Google Gemini LLM** (via the LangChain library) to process notes and the **Streamlit** Python library to build a simple, interactive user interface.
+
+The application acts as an AI tutor, explaining uploaded course notes at different difficulty levels you choose: **Beginner**, **Intermediate**, or **Expert**.
+
+---
 
 ## Application Setup Steps:
-### Step 1:
-Define a project folder somewhere on your system. Open vscode and open that project folder (it can be empty for now).
 
-### Step 2: 
-Define a GitHub repo, start on github.com and create a new public repository. 
+This guide assumes you are working within a local environment using a text editor like VS Code or PyCharm, and a Python environment (e.g., Anaconda or a virtual environment).
 
-Go to the project folder in vscode and run
+### Step 1: Create the Project Environment
+
+1.  **Define a Project Folder:** Create a new, empty folder on your system (e.g., `ai-notes-summarizer`).
+2.  **Open in Editor:** Open this folder in your chosen text editor (like VS Code or PyCharm).
+3.  **Install Libraries:** Open your terminal/command prompt and run the following commands to install the necessary Python libraries:
+
+    ```bash
+    pip install streamlit pypdf python-dotenv langchain_google_genai langgraph
+    ```
+
+    * `streamlit`: For building the user interface.
+    * `pypdf`: For reading and extracting text from PDF files.
+    * `python-dotenv`: To securely load your API key from a local file.
+    * `langchain_google_genai`: The specific LangChain package for interacting with Google Gemini models.
+    * `langgraph`: For defining the simple flow (or "graph") of the AI agent.
+
+---
+
+### Step 2: Get Your API Key and Set Up the Environment File
+
+1.  **Get API Key:** Go to **Google AI Studio** (`ai.studio.google.com`) and navigate to the **API keys** section on the left-hand menu. Generate a new API key and **copy it**.
+2.  **Create `.env` File:** In the root of your project folder, create a new file named **`.env`** (ensure it has no file extension).
+3.  **Add Key to `.env`:** Inside the `.env` file, paste your API key in the following format:
+
+    ```bash
+    GOOGLE_API_KEY="YOUR_COPIED_API_KEY_VALUE_HERE"
+    ```
+    Replace `"YOUR_COPIED_API_KEY_VALUE_HERE"` with the key you copied from Google AI Studio.
+
+---
+
+### Step 3: Create the Python Files
+
+Create two new Python files in the root of your project folder:
+
+1.  `main.py`: This file will contain all the **Streamlit (UI) logic**.
+2.  `tutor_ai.py`: This file will house the **LangGraph and Gemini LLM logic**.
+
+---
+
+### Step 4: Write the Code
+
+Follow along to write the code for `tutor_ai.py` and `main.py` using the provided, commented examples below.
+
+---
+
+### Step 5: Run the Application
+
+Once both files are complete, open your terminal in the project folder and run the Streamlit application with the following command:
 
 ```bash
-git init  # initialize this project folder
-git add .  # adds everything
-git commit -m "Initial commit"   # saves changes as a new commit with a description
-git remote add origin https://github.com/your-username/your-repo-name.git  # connect the remote repository
-git push -u origin main  # pushes all changes to the main branch
+streamlit run main.py
 ```
-You now have the project set up and from this point forward the only commands you will use is
+or if `streamlit` is not a recognizable command try:
 ```bash
-git add .
-git commit -m "COMMIT MESSAGE"
-git push
+python -m streamlit run main.py
 ```
+Then a browser window will automatically open, showing your AI Notes Summarizer!
 
-### Step 3: 
-Add two Python files labeled `main.py` (this will house the `streamlit` logic) and `tutor_ai.py` (this will house the LangGraph and LLM logic)
-
-### Step 4: 
-Define a `.gitignore` and `.env` file to house the API key. This will allow you to push everything onto GitHub without exposing your API key.
-
-```bash
-# Create the file at the root of the project
-Set-Content -Path .gitignore -Value ".env"  # puts .env in 
-
-# Create a .env file
-New-Item -Path . -Name ".env" -ItemType "File"
-
-# then you can just write and load the file
-```
-
-### Step 5: 
-Go to ai.studio.google.com and get an API key from the *Dashboards/API keys* section. Take the API key given and paste it into your `.env` file as a variable.
-
-```python
-GOOGLE_API_KEY="COPIED API KEY VALUE"  # this variable is what you call
-```
-
-### Step 6:
-Follow along to code the `main.py` file and the `tutor_ai.py` file.
-
-### Step 7:
-To run the streamlit application run `streamlit run main.py` (main.py is the where the streamlit logic is) and pray it works lol.
+If you have any question contact Brianna Hinds (hindsbg@hc.edu)
