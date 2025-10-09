@@ -18,7 +18,7 @@ st.title("AI Learning Tutor")
 st.write("This application is an AI tutor that explains uploaded course notes in different difficulty levels (Beginner/Immediate/Advanced).")
 
 # define streamlit columns so our elements can have a clean layout
-col1, col2 = st.columns()
+col1, col2 = st.columns(2)
 
 # define a place to upload a PDF document in the first column (streamlit makes this really easy)
 uploaded_file = col1.file_uploader(  # NEED TO PIP INSTALL EXTENSION (pip install streamlit[pdf])
