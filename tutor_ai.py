@@ -22,7 +22,7 @@ load_dotenv()
 API = os.getenv("GOOGLE_API_KEY")
 
 # if you do not have a .env file you can do set API to be:  (THIS STEP CAN BE SKIPPED IF YOU HAVE A .env FILE)
-API = "YOUR ACTUAL API KEY"  # copy it from google ai studio and paste between the quotation marks
+#API = "YOUR ACTUAL API KEY"  # copy it from google ai studio and paste between the quotation marks
 
 
 # Define and initialize the Gemini LLM
